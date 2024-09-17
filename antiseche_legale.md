@@ -13,7 +13,7 @@ pour parler des jobs il faut mettre % avant le numéro de jobs
 `$ jobs`  
 
 **Kill/Stop/...**  
-gère l'état des processus
+gère l'état des processus  
 `$ kill -s <signal> <PID/%jobs>...`  
 
 __liste signaux:__  
@@ -53,9 +53,9 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 `$ ???`  
 
 
-## Filtres  
+## Filtres  
 
-### tr  
+### tr  
 > * [:alpha:] : [a-zA-Z]  
 > * [:alnum:] : [a-zA-Z0-9]  
 > * [:digit:] : [0-9]  
@@ -71,7 +71,7 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 **suppr avec tr**  
 `$ cat <ficher> | tr -d <elem>`  
 
-### cut  
+### cut  
 
 > * """borne non-comprise"""  
 > * -<borne> : garde tout ce qu'il y a avant la borne  
@@ -100,4 +100,4 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 `$ cat <fichier> | cut -c <borne2>-`  
 
 
-## Combinaisons de filtres    
+## Combinaisons de filtres    
