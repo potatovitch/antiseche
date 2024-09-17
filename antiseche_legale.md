@@ -29,75 +29,75 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 
 
 ## Redirections (entrées/sorties) de Zinzin mon pote à la compote  
-**nom term**
-`$ tty`
+**nom term**  
+`$ tty`  
 
-**n (déscripteur) {0, 1, 2}:**
-    * 0 : entrée standard
-    * 1 : sortie standard
-    * 2 : sortie erreur
+**n (déscripteur) {0, 1, 2}:**  
+    * 0 : entrée standard  
+    * 1 : sortie standard  
+    * 2 : sortie erreur  
 
-**afficher le contenu d'un fichier dans un autre term**
-`$ cat <fichier> 1><term>`
+**afficher le contenu d'un fichier dans un autre term**  
+`$ cat <fichier> 1><term>`  
 
-**afficher une erreur dans un autre term**
-`$ cat <fichier> 2><term>`
+**afficher une erreur dans un autre term**  
+`$ cat <fichier> 2><term>`  
 
-**écraser/créer un fichier en redirigeant un texte d'un autre fichier**
-`$ cat <fichier> 1><fichier>`
+**écraser/créer un fichier en redirigeant un texte d'un autre fichier**  
+`$ cat <fichier> 1><fichier>`  
 
-**append le contenu d'un fichier dans un autre fichier**
-`$ cat <fichier> 1>><fichier>`
+**append le contenu d'un fichier dans un autre fichier**  
+`$ cat <fichier> 1>><fichier>`  
 
-**rediriger la sortie standard sur la sortie d’erreur**
-`$ ???`
+**rediriger la sortie standard sur la sortie d’erreur**  
+`$ ???`  
 
 
 ## Filtres  
 
-### tr
-> * [:alpha:] : [a-zA-Z]
-> * [:alnum:] : [a-zA-Z0-9]
-> * [:digit:] : [0-9]
-> * [:blank:] : space
-> * [:graph:] : tout sauf espace
-> * [:print:] : tout
-> * [:xdigit:] : [A-F0-9]
-> * [:lower:]/[:upper:] : min/maj
+### tr  
+> * [:alpha:] : [a-zA-Z]  
+> * [:alnum:] : [a-zA-Z0-9]  
+> * [:digit:] : [0-9]  
+> * [:blank:] : space  
+> * [:graph:] : tout sauf espace  
+> * [:print:] : tout  
+> * [:xdigit:] : [A-F0-9]  
+> * [:lower:]/[:upper:] : min/maj  
 
-**full maj**
-`$ cat <ficher> | tr [:lower:] [:lower:]`
+**full maj**  
+`$ cat <ficher> | tr [:lower:] [:lower:]`  
 
-**suppr avec tr**
-`$ cat <ficher> | tr -d <elem>`
+**suppr avec tr**  
+`$ cat <ficher> | tr -d <elem>`  
 
-### cut
+### cut  
 
-> * """borne non-comprise"""
-> * -<borne> : garde tout ce qu'il y a avant la borne
-> * <borne>- : garde tout ce qu'il y a après la borne
-> * <borne1>-<borne2> : garde ce qu'il y a entre les bornes
-> * -<borne1>,<borne2>- : garde ce qu'il y a autour des bornes
-> * """borne non-comprise"""
+> * """borne non-comprise"""  
+> * -<borne> : garde tout ce qu'il y a avant la borne  
+> * <borne>- : garde tout ce qu'il y a après la borne  
+> * <borne1>-<borne2> : garde ce qu'il y a entre les bornes  
+> * -<borne1>,<borne2>- : garde ce qu'il y a autour des bornes  
+> * """borne non-comprise"""  
 
-> * -b : nb bytes / ensemble de bytes
-> * -c : nb char / ensembles de char
-> * -d : détermine un char en délimiteur
-> * -f : détermine le field (nb de fois qu'on va passer le delim)(s'utilise avec -d)
-> * --complement : prend tout sauf ce qui est select par le cut (cut avec selection inversé)
+> * -b : nb bytes / ensemble de bytes  
+> * -c : nb char / ensembles de char  
+> * -d : détermine un char en délimiteur  
+> * -f : détermine le field (nb de fois qu'on va passer le delim)(s'utilise avec -d)  
+> * --complement : prend tout sauf ce qui est select par le cut (cut avec selection inversé)  
+ 
+
+**cut un elem spécifique**  
+`$ cat <fichier> | cut -c <borne1>-<borne2>`  
+
+**retirer un elem spécifique**  
+`$ cat <fichier> | cut -c -<borne1>,<borne2>-`  
+
+**cut du début jusqu'a un elem spécifique**  
+`$ cat <fichier> | cut -c -<borne1>`  
+
+**cut d'un elem spécifique jusqu'à la fin**  
+`$ cat <fichier> | cut -c <borne2>-`  
 
 
-**cut un elem spécifique**
-`$ cat <fichier> | cut -c <borne1>-<borne2>`
-
-**retirer un elem spécifique**
-`$ cat <fichier> | cut -c -<borne1>,<borne2>-`
-
-**cut du début jusqu'a un elem spécifique**
-`$ cat <fichier> | cut -c -<borne1>`
-
-**cut d'un elem spécifique jusqu'à la fin**
-`$ cat <fichier> | cut -c <borne2>-`
-
-
-## Combinaisons de filtres  
+## Combinaisons de filtres    
