@@ -18,10 +18,10 @@ gère l'état des processus
 
 __liste signaux:__  
     > * KILL : force kill  
-    > * STOP : stop  
-    > * TERM : kill gentil trop choupi  
-    > * CONT : relance un processus précédemment stoppé  
-    > * sinon y a des numéros mais flm  
+      * STOP : stop  
+      * TERM : kill gentil trop choupi  
+      * CONT : relance un processus précédemment stoppé  
+      * sinon y a des numéros mais flm  
 
 **bg/fg**  
 fout en arrière plan (bg/'&') ou en avant plans (fg) un processus  
