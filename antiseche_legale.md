@@ -74,10 +74,10 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 ### cut  
 
 > * """borne non-comprise"""  
-> * -<borne> : garde tout ce qu'il y a avant la borne  
-> * <borne>- : garde tout ce qu'il y a après la borne  
-> * <borne1>-<borne2> : garde ce qu'il y a entre les bornes  
-> * -<borne1>,<borne2>- : garde ce qu'il y a autour des bornes  
+> * -\<borne\> : garde tout ce qu'il y a avant la borne  
+> * \<borne\>- : garde tout ce qu'il y a après la borne  
+> * \<borne1\>-\<borne2\> : garde ce qu'il y a entre les bornes  
+> * -\<borne1\>,\<borne2\>- : garde ce qu'il y a autour des bornes  
 > * """borne non-comprise"""  
 
 > * -b : nb bytes / ensemble de bytes  
