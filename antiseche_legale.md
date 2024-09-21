@@ -66,7 +66,7 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 > * [:lower:]/[:upper:] : min/maj  
 
 **full maj**  
-`$ cat <ficher> | tr [:lower:] [:lower:]`  
+`$ cat <ficher> | tr [:lower:] [:upper:]`  
 
 **suppr avec tr**  
 `$ cat <ficher> | tr -d <elem>`  
