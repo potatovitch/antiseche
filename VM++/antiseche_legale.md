@@ -26,6 +26,7 @@ __dans /etc/sudoers__
 **suppr un user**
 `$ deluser <user> --remove-home`
 
+
 ## package manager
 
 > ne pas oublier installer les lib des packages manager
@@ -52,8 +53,33 @@ __dans /etc/sudoers__
 
 ## Config
 
+**changer la langue sys**
+`$ dpkg-reconfigure locales`
+
+**changer la timezone**
+`$ dpkg-reconfigure tzdata`
+
+**changer le profils de touche (azerty/qwerty)**
+`$ dpkg-reconfigure keyboard-configuration`
+
 
 ## Partitions
+
+**faites un instantané**
+
+> souvent la partition utilisable linux est au format ext4
+> ??? swap pour la ram ???
+> jsp
+> jsp
+> le disk est monté sur /dev/sda?
+
+**place free d'un disk**
+`$ df -ah`
+
+**info sur les partitions**
+`$ fdisk -x`
+
+
 
 
 ## Dual boot
