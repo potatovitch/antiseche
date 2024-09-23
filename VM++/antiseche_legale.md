@@ -94,6 +94,6 @@ __dans /etc/sudoers__
 ## gestion kernel
 
 
-## manual install (nsm jveux pas le faire)
+## manual install (nsm jveux pas le faire)
 
 
