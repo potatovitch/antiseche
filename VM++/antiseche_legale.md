@@ -83,23 +83,23 @@ __dans /etc/sudoers__
 `$ fdisk -x`  
 
 **entrer dans fdisk**  
-`$ fdisk <disk>`                    <!-- disk : disk sur lequel on veut faire la partition --->
+`$ fdisk <disk>`                    <!-- disk : disk sur lequel on veut faire la partition --->  
 
 **créer une partition**   
 __dans fdisk__    
-`$ d`                               <!-- suppr toute les partition existantes--->
-`$ n`                               <!-- ajouter une nouvelle partition --->
-`$ p`                               <!-- partition primaire --->
-`$ <enter>`                         <!-- appuyer sur entrer --->
-`$ +<taille><unit>`                 <!-- ex : $ +11G --->
+`$ d`                               <!-- suppr toute les partition existantes--->  
+`$ n`                               <!-- ajouter une nouvelle partition --->  
+`$ p`                               <!-- partition primaire --->  
+`$ <enter>`                         <!-- appuyer sur entrer --->  
+`$ +<taille><unit>`                 <!-- ex : $ +11G --->  
 
 **modifier une partition**  
 __dans fdisk__  
-`$ t`                               <!-- change le type de la partition --->
-`$ L`                               <!-- lister tout les codes --->
-`$ 83`                              <!-- choisit linux dans le code HEX listé précedemment--->
-`$ w`                               <!-- quitte fdisk --->
-`$ mkfs.ext4 -b 4096 /dev/sda?`     <!-- ext4 : format de la partition; blocks de 4096 octets; /dev/sda1 : disk sur lesuel on monte la partition --->
+`$ t`                               <!-- change le type de la partition --->  
+`$ L`                               <!-- lister tout les codes --->  
+`$ 83`                              <!-- choisit linux dans le code HEX listé précedemment--->  
+`$ w`                               <!-- quitte fdisk --->  
+`$ mkfs.ext4 -b 4096 /dev/sda?`     <!-- ext4 : format de la partition; blocks de 4096 octets; /dev/sda1 : disk sur lesuel on monte la partition --->  
 
 **monter la partition dans un dir**  
 
