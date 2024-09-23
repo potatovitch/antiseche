@@ -1,14 +1,14 @@
 # BlipBloup  
 
-**add sudoers**
-
-usermod -aG sudo user <!-- ajoute user au groupe sudo --->
-
-
 ## Gestion des users
+
 > les infos users sont stockés dans /etc/passwd
 > les passwd chiffrés sont stockés dans /etc/shadow
 > les infos des groups dont dans /etc/group
+
+**add sudoers (add user au grp sudo)**
+
+`$ usermod -aG sudo user`
 
 **changer le mdp user**
 `$ passwd <user>`
@@ -73,12 +73,35 @@ __dans /etc/sudoers__
 > jsp
 > le disk est monté sur /dev/sda?
 
+**afficher les partitions**
+`$ fdisk -l`
+
 **place free d'un disk**
 `$ df -ah`
 
 **info sur les partitions**
 `$ fdisk -x`
 
+**entrer dans fdisk**
+`$ fdisk <disk>`                    <!-- disk : disk sur lequel on veut faire la partition --->
+
+**créer une partition**
+__dans fdisk__
+`$ d`                               <!-- suppr toute les partition existantes--->
+`$ n`                               <!-- ajouter une nouvelle partition --->
+`$ p`                               <!-- partition primaire --->
+`$ <enter>`                         <!-- appuyer sur entrer --->
+`$ +<taille><unit>`                 <!-- ex : $ +11G --->
+
+**modifier une partition**
+__dans fdisk__
+`$ t`                               <!-- change le type de la partition --->
+`$ L`                               <!-- lister tout les codes --->
+`$ 83`                              <!-- choisit linux dans le code HEX listé précedemment--->
+`$ w`                               <!-- quitte fdisk --->
+`$ mkfs.ext4 -b 4096 /dev/sda?`     <!-- ext4 : format de la partition; blocks de 4096 octets; /dev/sda1 : disk sur lesuel on monte la partition --->
+
+**monter la partition dans un dir**
 
 
 
@@ -94,6 +117,5 @@ __dans /etc/sudoers__
 ## gestion kernel
 
 
-## manual install (nsm jveux pas le faire)
-
+## manual install (nsm jveux pas le faire)
 
