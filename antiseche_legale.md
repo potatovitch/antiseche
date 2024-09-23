@@ -101,3 +101,29 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 
 
 ## Combinaisons de filtres    
+
+
+## Gestion utilisateur et groupe de bot a la compote 
+
+**La création d'utilisateur**  
+
+`adduser (sur debian et ubuntu) - créer un utilisateur sur la machine`  
+
+**La création d'un groupe**  
+`sudo addgroup - créer un groupe`  
+
+**ajout d'un utilisateur dans un groupe**  
+pour exemple, quand on créer l'utilisateur tata  
+`adduser tata`  
+
+pour l'ajouter dans le groupe existant ou crée recemment l'on doit faire :
+`usermod -aG <groupe> <utilisateur>`  
+  
+par exemple :  
+`usermod -aG bidule tata`  
+  
+pour etre sur que tata est bien dans le groupe desiré, inserer cette ligne de commande :  
+  
+`groups <utilisateur>`  
+
+
