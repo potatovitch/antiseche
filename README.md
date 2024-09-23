@@ -1,3 +1,3 @@
 # antiseche
 
-**les commits en dehors des dir sont obsolètes mon pote à la compote**
+**les commits en dehors des dir sont trop verbeux mon pote à la compote**
