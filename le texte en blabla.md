@@ -1,7 +1,7 @@
 # Sommaire
 
   ## 1. [Processus et filtre](#process)
-  ## 2. [Gestion des users et groupe](#Gestion)
+  ## 2. [Gestion des users et groupe](#gestion)
   ## 3. [package manager](#package)
   ## 4. [Configuration](#config)
   ## 5. [Partitions](#Partitions)
@@ -79,7 +79,7 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 **suppr avec tr**
 `$ cat <ficher> | tr -d <elem>`
 
-### cut
+### cut
 
 > * """borne non-comprise"""
 > * -<borne> : garde tout ce qu'il y a avant la borne
@@ -108,7 +108,7 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 `$ cat <fichier> | cut -c <borne2>-`
 
 
-# Gestion des users et groupe <a name="Gestion">
+# Gestion des users et groupe <a name="gestion">
 
 > les infos users sont stockés dans /etc/passwd
 > les passwd chiffrés sont stockés dans /etc/shadow
