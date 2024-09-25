@@ -61,9 +61,9 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 `$ ???`  
 
 
-## Filtres  
+## Filtres  
 
-### tr  
+### tr  
 > * [:alpha:] : [a-zA-Z]  
 > * [:alnum:] : [a-zA-Z0-9]  
 > * [:digit:] : [0-9]  
