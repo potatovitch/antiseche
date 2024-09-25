@@ -25,11 +25,11 @@ gère l'état des processus
 `$ kill -s <signal> <PID/%jobs>...`  
 
 __liste signaux:__  
-    > * KILL : force kill  
-    > * STOP : stop  
-    > * TERM : kill gentil trop choupi  
-    > * CONT : relance un processus précédemment stoppé  
-    > * sinon y a des numéros mais flm  
+> * KILL : force kill  
+> * STOP : stop  
+> * TERM : kill gentil trop choupi  
+> * CONT : relance un processus précédemment stoppé  
+> * sinon y a des numéros mais flm  
 
 **bg/fg**  
 fout en arrière plan (bg/'&') ou en avant plans (fg) un processus  
@@ -41,9 +41,9 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 `$ tty`  
 
 **n (déscripteur) {0, 1, 2}:**  
-    * 0 : entrée standard  
-    * 1 : sortie standard  
-    * 2 : sortie erreur  
+> * 0 : entrée standard  
+> * 1 : sortie standard  
+> * 2 : sortie erreur  
 
 **afficher le contenu d'un fichier dans un autre term**  
 `$ cat <fichier> 1><term>`  
