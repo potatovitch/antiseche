@@ -188,11 +188,11 @@ pour exemple, quand on créer l'utilisateur tata
 
 **faites un instantané**  
 
-> souvent la partition utilisable linux est au format ext4
-> ??? swap pour la ram ???
-> jsp
-> jsp
-> le disk est monté sur /dev/sda?
+> * souvent la partition utilisable linux est au format ext4  
+> * ??? swap pour la ram ???  
+> * jsp  
+> * jsp  
+> * le disk est monté sur /dev/sda?  
 
 **afficher les partitions**  
 `$ fdisk -l`  
