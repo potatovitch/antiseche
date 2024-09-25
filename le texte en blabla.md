@@ -110,9 +110,9 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 
 # Gestion des users et groupe <a name="gestion">  
 
-> les infos users sont stockés dans /etc/passwd  
-> les passwd chiffrés sont stockés dans /etc/shadow  
-> les infos des groups dont dans /etc/group  
+> * les infos users sont stockés dans /etc/passwd  
+> * les passwd chiffrés sont stockés dans /etc/shadow  
+> * les infos des groups dont dans /etc/group  
 
 **add sudoers (add user au grp sudo)**  
 
