@@ -1,3 +1,39 @@
+## Introduction
+Ce petit guide vous permet de réaliser la SAÉ 1.03 sans problème ;)
+
+**Voici quelques petits tips**  
+Durant toute cette page, on utilisera une syntaxe précise pour spécifier comment éxécuter une commande ou modifier un fichier.  
+
+```
+$ commande
+```
+Indiquera une commande à éxécuter en tant qu'utilisateur normal.
+
+```
+# commande
+```
+Indiquera une commande à éxécuter en tant que root.  
+
+**Cela revient à taper** :
+```
+$ sudo commande
+```
+(à condition que vous soyez dans le fichier `/etc/sudoers` (Voir la suite)) 
+
+**Pour devenir root** :
+```
+$ su
+```
+Puis taper le mot de passe.
+
+**Les modifications de fichiers**  
+Quand nous modifierons un fichier, nous utiliserons toujours cette syntaxe :
+```
+FILE /chemin/absolu/vers/le/fichier
+-----
+Contenu du fichier à modifier (la plupart du temps, cela consiste à ajouter des lignes dans le fichier)
+```
+
 # Sommaire
 
   ## 1. [Processus et filtre](#process)  
@@ -128,6 +164,11 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 __dans /etc/sudoers__   
 `<user>  ALL=(ALL:ALL) ALL`   
 
+**OU ALORS, sur Debian**  
+```  
+# usermod -aG sudo <utilisateur>  
+```  
+
 **suppr un user**  
 `$ deluser <user> --remove-home`  
 
@@ -148,10 +189,68 @@ pour exemple, quand on créer l'utilisateur tata
 
 # package manager <a name="package">
 
-> ne pas oublier installer les lib des packages manager
+Sur **Debian**, en TP, on utilisera le gestionnaire de paquets **APT** (Advanced Packaging Tool). Voici une petite liste de commandes : 
 
-**installer un packet avec apt-get**  
-`$ apt-get install <packet>`  
+> **Attention !**
+> Ne pas oublier installer les lib des packages manager
+
+**Installer un paquet**
+```
+# apt-get install <paquet>
+--- OU ---
+# apt install <paquet>
+```
+
+**Supprimer un paquet**
+```
+# apt-get purge <paquet>
+--- OU ---
+# apt purge <paquet>
+```
+> NOTE : l'opération `remove` existe également, mais on préfèrera purge car elle supprime **tous** les fichiers du paquet.
+
+**Synchroniser la liste des paquets avec le dépôt distant**  
+Cela permet de bien être sûr que la liste des paquets est à jour et prête pour les mises à jour poussées par les développeurs de Debian.
+```
+# apt update 
+--- OU ---
+# apt-get update
+```
+
+**Chercher un paquet dans la base de données**  
+Ça pourra vous être utile pour chercher des paquets dont vous ne connaissez pas le nom exact. 
+```
+$ apt search <texte>
+```
+
+**Chercher un fichier dans les paquets**  
+Parfois, vous aurez besoin d'une commande, mais vous ne connaîtrez peut-être pas le nom du paquet. On peut donc utiliser `apt-file` pour chercher un fichier contenu dans un paquet.  
+Commençons par installer et configurer `apt-file`
+```
+# apt install apt-file
+# apt-file update 
+```
+On peut ensuite chercher notre fichier : 
+```
+$ apt-file search <texte>
+```
+
+**Mettre à jour tous les paquets**
+```
+# apt upgrade
+--- OU ---
+# apt-get upgrade
+```
+
+> Sur Debian, APT utilise DPKG pour installer les paquets et modifier la base de données. On peut donc utiliser `dpkg` nous-même pour installer un paquet local.
+
+**Installer un paquet local**
+```
+# dpkg -i <chemin/vers/paquet>
+```
+> NOTE : pour ceci, on recommande quand même **d'utiliser APT, qui pourra ainsi installer les éventuelles dépendances du paquet sans causer d'erreur et tout casser**.
+> On utilisera donc  
+> ```# apt install <chemin/vers/paquet>```  
 
 **installer un packet avec snap**  
 `$ snap install <packet>`  
@@ -166,6 +265,12 @@ pour exemple, quand on créer l'utilisateur tata
 
 **purge(full remove) un packet**  
 `$ apt-get purge <packet>`  
+
+> pour le reste tu regarde la doc de ton PM j'ai pas que ça à faire
+
+**Installez le gestionnaire de bureau soit LXDE**
+`$ apt-get install task-ldxe-desktop`
+
 
 > pour le reste tu regarde la doc de ton PM j'ai pas que ça à faire
 
@@ -198,7 +303,7 @@ pour exemple, quand on créer l'utilisateur tata
 `$ fdisk -l`  
 
 **place free d'un disk**  
-`$ df -ah`  
+`$ df -h`  
 
 **info sur les partitions**  
 `$ fdisk -x`  
