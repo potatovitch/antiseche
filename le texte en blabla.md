@@ -1,4 +1,17 @@
-## Introduction
+
+# Sommaire
+
+  ## 1. [Introduction du pdf](#intro)
+  ## 2. [Processus et filtre](#process)  
+  ## 3. [Gestion des users et groupe](#gestion)  
+  ## 4. [package manager](#package)  
+  ## 5. [Configuration](#config)  
+  ## 6. [Partitions](#Partitions)  
+  ## 7. [ Dual Boot en Legend](#dual)
+
+
+\newpage  
+## Introduction <a name="intro">  
 Ce petit guide vous permet de réaliser la SAÉ 1.03 sans problème ;)
 
 **Voici quelques petits tips**  
@@ -34,16 +47,7 @@ FILE /chemin/absolu/vers/le/fichier
 Contenu du fichier à modifier (la plupart du temps, cela consiste à ajouter des lignes dans le fichier)
 ```
 
-# Sommaire
-
-  ## 1. [Processus et filtre](#process)  
-  ## 2. [Gestion des users et groupe](#gestion)  
-  ## 3. [package manager](#package)  
-  ## 4. [Configuration](#config)  
-  ## 5. [Partitions](#Partitions)  
-  ## 6. 
-   
-
+\newpage  
 # Processus en Crabe <a name="process">   
 
 **PID**  
@@ -71,7 +75,7 @@ __liste signaux:__
 fout en arrière plan (bg/'&') ou en avant plans (fg) un processus  
 `$ fg/bg <PID/%jobs>...`  
 
-
+\newpage  
 ## Redirections (entrées/sorties) de Zinzin mon pote à la compote  
 **nom term**  
 `$ tty`  
@@ -96,7 +100,7 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 **rediriger la sortie standard sur la sortie d’erreur**  
 `$ ???`  
 
-
+\newpage  
 ## Filtres  
 
 ### tr  
@@ -143,7 +147,7 @@ fout en arrière plan (bg/'&') ou en avant plans (fg) un processus
 **cut d'un elem spécifique jusqu'à la fin**  
 `$ cat <fichier> | cut -c <borne2>-`  
 
-
+\newpage  
 # Gestion des users et groupe <a name="gestion">  
 
 > * les infos users sont stockés dans /etc/passwd  
@@ -186,7 +190,7 @@ pour exemple, quand on créer l'utilisateur tata
 `$ chown <user> <file>` 
 
 
-
+\newpage  
 # package manager <a name="package">
 
 Sur **Debian**, en TP, on utilisera le gestionnaire de paquets **APT** (Advanced Packaging Tool). Voici une petite liste de commandes : 
@@ -275,7 +279,7 @@ $ apt-file search <texte>
 > pour le reste tu regarde la doc de ton PM j'ai pas que ça à faire
 
 
-
+\newpage  
 # Configuration  <a name="config">
 
 **changer la langue sys**  
@@ -288,52 +292,77 @@ $ apt-file search <texte>
 `$ dpkg-reconfigure keyboard-configuration`  
 
 
-
+\newpage  
 # Partitions <a name="Partitions">
 
-**faites un instantané**  
+### Important : les Block Devices
+Sur les systèmes UNIX, les disques ne sont pas identifiés par des **lettres**, comme sur Windows, mais par des **fichiers spéciaux**. Ils sont tous accessibles dans le répertoire `/dev`, et peuvent être sous plusieurs formes :
+ * `/dev/sdX` la plupart du temps, surtout pour les disques SATA
+ * `/dev/nvmeX` pour les SSD NVME
+ * Ou encore `/dev/mmcblkX` pour les stockages flash
+Vous pouvez trouver une liste des disques de votre système (avec leurs noms et tailles) avec `fdisk`.
+```# fdisk -l```
+**Plus tard, on utilisera tout simplement <disk> pour parler d'un disque, ou <partition> d'une partition, donc il est important de savoir de quoi on parle**.
 
-> * souvent la partition utilisable linux est au format ext4  
-> * ??? swap pour la ram ???  
-> * jsp  
-> * jsp  
-> * le disk est monté sur /dev/sda?  
-
-**afficher les partitions**  
-`$ fdisk -l`  
-
-**place free d'un disk**  
-`$ df -h`  
-
-**info sur les partitions**  
-`$ fdisk -x`  
-
-**entrer dans fdisk**  
-`$ fdisk <disk>`                    <!-- disk : disk sur lequel on veut faire la partition --->  
-
-**créer une partition**   
-__dans fdisk__    
-`$ d`                               <!-- suppr toute les partition existantes--->  
-`$ n`                               <!-- ajouter une nouvelle partition --->  
-`$ p`                               <!-- partition primaire --->  
-`$ <enter>`                         <!-- appuyer sur entrer --->  
-`$ +<taille><unit>`                 <!-- ex : $ +11G --->  
-
-**modifier une partition**  
-__dans fdisk__  
-`$ t`                               <!-- change le type de la partition --->  
-`$ L`                               <!-- lister tout les codes --->  
-`$ 83`                              <!-- choisit linux dans le code HEX listé précedemment--->  
-`$ w`                               <!-- quitte fdisk --->  
-`$ mkfs.ext4 -b 4096 /dev/sda?`     <!-- ext4 : format de la partition; blocks de 4096 octets; /dev/sda1 : disk sur lesuel on monte la partition --->  
-
-**monter la partition dans un dir**  
-
- 
+### Facultatif : Faire un instantané  
+> Pour sauvegarder une image d'une partition ou d'un disque, afin de pouvoir la restaurer plus tard, vous pouvez utiliser la commande ```df```.  
+> **Attention: Cette commande est à haut risque et pourrait complètement nuke votre disque. À utiliser avec précaution.```  
+>   
+> **Pour faire une image :**  
+> ```dd if="/dev/sdXX" of="fichier_sortie.iso"```  
+> **Pour pouvoir la reflash ensuite :**  
+> ```dd if="fichier_entree.iso" of="/dev/sdXX"```
 
 
+**Afficher l'espace libre sur les disques**  
+```$ df -h```
+
+**Afficher les informations sur les partitions**  
+```$ fdisk -x```
+
+**Modifier les partitions d'un disque**  
+```$ fdisk <disk>```                    <!-- disk : disk sur lequel on veut faire la partition --->  
+
+**Ajouter une partition**
+4 étapes :  
+(dans fdisk)  
+ 1. `n` -- Ajouter une nouvelle partition
+ 2. `p` -- En faire une partition primaire
+ 3. -- Laissez vide et appuyez sur entrée
+ 4. `+XG` ou `+XM` -- Donner la taille de la partition en Go ou en Mo (+5G crééra une partition de 5 Go).
+
+**Supprimer une partition**
+(dans fdisk)  
+ 1. `d` -- Supprimer une partition
+ 2. Entrer le numéro de partition demandé (s'il y en plusipeurs)
+
+**Modifier une partition**  
+Vous pourrez également modifier le type d'une partition **(ici, sur la VM, vous n'en aurez pas besoin)**
+(dans fdisk)  
+`t` -- Changer le type de partition  
+`L` -- Lister les types de partition  
+`83` -- Par exemple, pour une partition de type linux  
+
+**Quitter fdisk**  
+`w` -- Écrit les changements et quitte fdisk  
+`q` -- Quitte sans écrire les changements  
+
+**Formatter une partition**  
+Une fois vos partitions crées, il faudra les formatter pour pouvoir les utiliser. Les systèmes Linux utilisent quasiment tous `ext4`, mais il en existe d'autres : 
+ * `mkfs.ext4 <partition>` -- Créer une partition ext4 (Par exemple `/dev/sda2`)  
+ * `mkfs.vfat -F32 <partition>` -- Créer une partition FAT32
+
+**Monter la partition dans un dossier**  
+```# mount <partition> /chemin/vers/dossier``` (doit être vide)
+
+\newpage  
 # Dual boot <a name="dual">
+La mise en place d'un dual boot dépend beaucoup des systèmes. Si vous ne voulez pas trop vous casser les couilles, vous pouvez simplement : 
+ 1. Démarrer sur l'ISO d'une distribution comme Ubuntu, Manjaro Linux ou Solus Linux  
+ 2. Commencer l'installation comme si de rien n'était  
+ 3. Au moment où les disques sont demandés, choisir "Installer à côté de (nom de votre 1er système)", choisir oui, et installer  
 
+![Install Ubuntu alongside Microsoft Windows XP Professional](dualboot.jpg)
   
 
 # Fonctionnalité systeme
