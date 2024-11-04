@@ -8,6 +8,8 @@
 
 `$ hd <fichier>`
 
+_y a des tables dans le man hd_
+
 ## od
 > od - dump files in octal and other formats
 `$ od -A o -t oS -w16 <fichier>`    // <od par default>
