@@ -80,26 +80,37 @@
 ## SED (aaaahhhhh)
 
 **afficher une ligne**
-`$ cat <fichier> | sed '<LIGNES><LETTRES><OPTION>'`
-`$ cat <fichier> | sed '3p'`
+`$ cat <fichier> | sed -n '<LIGNES><LETTRES><OPTION>'`
+`$ cat <fichier> | sed -n '3p'`
 
 **suppr une ligne**
 `$ cat <fichier> | sed '<LIGNES>d'`
 
 **remplacer m1 par m2**
 `cat tuyaux | sed '<LIGNES>s/<m1>/<m2>/g'`
+> * g : global (ne s'arrete pas à la première occ)
 
+**affiche une ligne sur deux**
+`$ cat tuyaux | sed -n '1~2p'`
 
+> * -n : affiche ce qui est select et pas tout en plus de ce qui est select
 
 **LIGNES**
 > * <borne1><elt><borne2>...
-> * ';' : ligne différentes
-> * ',' : ligne entres
+> * ';' : select ligne
+> * ',' : select ligne(s) entres
+> * '~' : pas des ligne(s) select
 
 **LETTRES** 
 > * p : afficher lignes
 > * d : delete
-> * s : remplace
+> * s : ajoute/remplace
 
 **OPTION**
 > * s(uniquement)/<m1>/<m2>/g
+
+**avec OPTION s**
+> * s/^/<chaine>/ : met <chaine> en début de ligne ('^' cible le debut de ligne)
+> * s/$/<chaine>/ : met <chaine> en fin de ligne ('$' cible le debut de ligne)
+> * !s/.../.../   : select les lignes non vides ???
+> * s/^$/.../     : select les lignes vides     ???

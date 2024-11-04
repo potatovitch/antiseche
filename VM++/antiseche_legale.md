@@ -67,6 +67,7 @@ __dans /etc/sudoers__
 
 **faites un instantané**  
 
+
 > souvent la partition utilisable linux est au format ext4
 > ??? swap pour la ram ???
 > jsp
