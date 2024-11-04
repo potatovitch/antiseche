@@ -1,3 +1,3 @@
 # antiseche
 
-**les commits en dehors des dir sont trop verbeux mon pote à la compote**
+**j'ai rajouter des trucs en sys(le truc sur od et hexedit)**
